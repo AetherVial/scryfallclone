@@ -1,20 +1,22 @@
 import React, {useState} from 'react';
+import { connect } from "react-redux";
 import {withRouter} from 'react-router-dom';
 import catto from '../../frostcatto1.png';
+import { clearSearch, search } from '../../actions/search_actions';
 
-function Search() {
+const mdtp = dispatch => {
+  return {
+    search: (term) => dispatch(search(term)),
+    clearSearch: () => dispatch(clearSearch())
+  }
+}
+
+function Search({search, clearSearch}) {
   let [searchTerm, setSearchTerm] = useState('');
 
   function onFormSubmit(e) {
     e.preventDefault();
-    // dispatch({type: 'newSearchTerm', payload: searchTerm})
-
-
-    // history.push(
-    //   {
-    //     pathname: 'index'
-    //   }
-    // );
+    search(searchTerm);
   }
 
 
@@ -36,7 +38,7 @@ function Search() {
 }
 
 
-export default withRouter(Search);
+export default withRouter(connect(null, mdtp)(Search))
 
 
 
