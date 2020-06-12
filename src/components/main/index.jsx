@@ -28,7 +28,7 @@ function Index({results, term}) {
     let list = results.map((e, i) => {
       return(
         <div key={results[i.toString()].id}>
-          {results[i.toString()].name}
+          <img src={results[i.toString()].image_uris.normal} alt={results[i.toString()].name}/>
         </div>
       )
     })
