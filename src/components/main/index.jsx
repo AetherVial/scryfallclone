@@ -1,5 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
+import { clearSearch, search } from '../../actions/search_actions';
+import { connect } from "react-redux";
+
+const mstp = (search) => {
+  return {
+    search: search
+  }
+}
+
+const mdtp = dispatch => {
+  return {
+    search: (term) => dispatch(search(term)),
+    clearSearch: () => dispatch(clearSearch())
+  }
+}
 
 function Index() {
   const history = useHistory();
@@ -19,4 +34,4 @@ function Index() {
   }
 }
 
-export default withRouter(Index);
+export default withRouter(connect(mstp, mdtp)(Index))

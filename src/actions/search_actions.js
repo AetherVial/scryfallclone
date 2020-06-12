@@ -1,5 +1,4 @@
-import * as SearchAPIUtil from '../util/search_api_util'
-
+import axios from 'axios'
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 
@@ -16,9 +15,16 @@ export const clearSearch = () => {
     }
 }
 
+export const searchaction = term => {
+  return axios({
+    method: "GET",
+    url: `https://api.scryfall.com/cards/search?q=${term}`,
+  })
+}
+
 export const search = query_string => dispatch => {
-  return SearchAPIUtil.search(query_string)
+  return searchaction(query_string)
     .then(payload => {
-      dispatch(receiveSearch(payload))
+      dispatch(receiveSearch(payload.data))
     });
 }

@@ -4,6 +4,12 @@ import {withRouter} from 'react-router-dom';
 import catto from '../../frostcatto1.png';
 import { clearSearch, search } from '../../actions/search_actions';
 
+const mstp = ({search}) => {
+  return {
+    search: search
+  }
+}
+
 const mdtp = dispatch => {
   return {
     search: (term) => dispatch(search(term)),
@@ -17,9 +23,8 @@ function Search({search, clearSearch}) {
   function onFormSubmit(e) {
     e.preventDefault();
     search(searchTerm);
+    
   }
-
-
 
   return(
     <div className="App">
@@ -38,7 +43,7 @@ function Search({search, clearSearch}) {
 }
 
 
-export default withRouter(connect(null, mdtp)(Search))
+export default withRouter(connect(mstp, mdtp)(Search))
 
 
 
