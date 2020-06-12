@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { withRouter} from 'react-router-dom';
+import React from 'react';
+import { withRouter, Link} from 'react-router-dom';
 import { clearSearch, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
 
@@ -18,17 +18,28 @@ const mdtp = dispatch => {
 }
 
 function Index({results, term}) {
-  let [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    setCards(results);
-  }, [])
   
-  return(
-    <div>
-      hello
-    </div>
-  )
+  if (!results.length) {
+    return(
+      <div>looks like nothing here fam</div>
+    )
+  } else {
+    let list = results.map((e, i) => {
+      return(
+        <div key={results[i.toString()].id}>
+          {results[i.toString()].name}
+        </div>
+      )
+    })
+
+    return (
+      <div>
+        {list}
+      </div>
+    )
+
+  }
 }
 
 export default withRouter(connect(mstp, mdtp)(Index))

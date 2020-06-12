@@ -10,7 +10,6 @@ const searchReducer = (state = _nullState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_SEARCH_TERM:
-      console.log(action)
       newState.searchTerm = action.term;
       return newState;
     case RECEIVE_SEARCH:
