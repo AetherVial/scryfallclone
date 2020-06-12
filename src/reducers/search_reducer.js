@@ -1,13 +1,24 @@
-import { RECEIVE_SEARCH, CLEAR_SEARCH } from '../actions/search_actions';
+import { RECEIVE_SEARCH, CLEAR_SEARCH, RECEIVE_SEARCH_TERM, CLEAR_SEARCH_TERM } from '../actions/search_actions';
 
-let _nullState = {};
+let _nullState = {
+  searchTerm: "",
+  results: []
+};
 
-const searchReducer = (state = {}, action) => {
+const searchReducer = (state = _nullState, action) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch (action.type) {
+    case RECEIVE_SEARCH_TERM:
+      console.log(action)
+      newState.searchTerm = action.term;
+      return newState;
     case RECEIVE_SEARCH:
-      return action.payload
+      newState.results = action.payload.data;
+      return newState;
     case CLEAR_SEARCH:
+      return _nullState
+    case CLEAR_SEARCH_TERM:
       return _nullState
     default:
       return state;

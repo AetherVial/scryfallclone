@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { withRouter, useHistory } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { clearSearch, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
 
-const mstp = (search) => {
+const mstp = ({search}) => {
   return {
-    search: search
+    results: search.results,
+    term: search.searchTerm
   }
 }
 
@@ -16,22 +17,18 @@ const mdtp = dispatch => {
   }
 }
 
-function Index() {
-  const history = useHistory();
-  let term = history.location.search.split('=')[1];
-  let [results, setResults] = useState([]);
+function Index({results, term}) {
+  let [cards, setCards] = useState([]);
 
   useEffect(() => {
-
-  })
+    setCards(results);
+  }, [])
   
-  if (results.length === 0) {
-    console.log(term)
-    return <div>hello</div>
-  } else {
-    console.log(term)
-    return <div>i have found something!</div>
-  }
+  return(
+    <div>
+      hello
+    </div>
+  )
 }
 
 export default withRouter(connect(mstp, mdtp)(Index))

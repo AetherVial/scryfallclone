@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { connect } from "react-redux";
-import {withRouter} from 'react-router-dom';
+import {withRouter, useHistory} from 'react-router-dom';
 import catto from '../../frostcatto1.png';
-import { clearSearch, search } from '../../actions/search_actions';
+import { clearSearch, search, receiveSearchTerm, clearSearchTerm } from '../../actions/search_actions';
 
 const mstp = ({search}) => {
   return {
@@ -19,11 +19,13 @@ const mdtp = dispatch => {
 
 function Search({search, clearSearch}) {
   let [searchTerm, setSearchTerm] = useState('');
+  let history = useHistory();
 
   function onFormSubmit(e) {
     e.preventDefault();
+    receiveSearchTerm(searchTerm);
     search(searchTerm);
-    
+    history.push('/results')
   }
 
   return(
