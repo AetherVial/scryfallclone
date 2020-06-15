@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link} from 'react-router-dom';
 import { clearSearch, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
+import Card from './card';
 
 const mstp = ({search}) => {
   return {
@@ -27,14 +28,12 @@ function Index({results, term}) {
   } else {
     let list = results.map((e, i) => {
       return(
-        <div key={results[i.toString()].id}>
-          <img src={results[i.toString()].image_uris.normal} alt={results[i.toString()].name}/>
-        </div>
+        <Card key={i} card={e}/>
       )
     })
 
     return (
-      <div>
+      <div class="index">
         {list}
       </div>
     )

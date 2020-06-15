@@ -1,0 +1,8 @@
+.card {
+
+}
+
+.index {
+  display: flex;
+  flex-wrap: wrap;
+}
