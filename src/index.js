@@ -17,10 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   let store = configureStore();
 
+  console.log(store);
+
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  ReactDOM.render(<App store={store}/>, root);
+  ReactDOM.render(<App store={store.store} persistor={store.persistor}/>, root);
 })
 
 // If you want your app to work offline and load faster, you can change
