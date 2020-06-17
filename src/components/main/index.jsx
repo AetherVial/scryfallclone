@@ -3,6 +3,7 @@ import { withRouter, Link} from 'react-router-dom';
 import { clearSearch, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
 import Card from './card';
+import "../../stylesheets/card.css";
 
 const mstp = ({search}) => {
   return {
@@ -13,8 +14,7 @@ const mstp = ({search}) => {
 
 const mdtp = dispatch => {
   return {
-    search: (term) => dispatch(search(term)),
-    clearSearch: () => dispatch(clearSearch())
+    search: (term) => dispatch(search(term))
   }
 }
 
@@ -33,7 +33,7 @@ function Index({results, term}) {
     })
 
     return (
-      <div class="index">
+      <div className="index">
         {list}
       </div>
     )
