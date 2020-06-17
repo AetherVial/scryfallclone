@@ -5,14 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/store';
 
-// ReactDOM.render(
-//   store = configureStore()
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   let store = configureStore();
