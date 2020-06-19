@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   let store = configureStore();
 
-  console.log(store);
-
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

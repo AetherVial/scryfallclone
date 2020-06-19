@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, useHistory } from 'react-router-dom';
 import { clearSearch, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
 import Card from './card';

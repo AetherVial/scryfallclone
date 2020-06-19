@@ -3,12 +3,20 @@ export const RECEIVE_SEARCH = "RECEIVE_SEARCH";
 export const RECEIVE_SEARCH_TERM = "RECEIVE_SEARCH_TERM";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 export const CLEAR_SEARCH_TERM = "CLEAR_SEARCH_TERM";
+export const RECEIVE_ADVANCED_SEARCH = "RECEIVE_ADVANCED_SEARCH";
 
 export const receiveSearch = payload => {
     return {
         type: RECEIVE_SEARCH,
         payload
     }
+}
+
+export const receiveAdvancedSearch = payload => {
+  return {
+    type: RECEIVE_ADVANCED_SEARCH,
+    payload
+  }
 }
 
 export const receiveSearchTerm = term => {
@@ -37,6 +45,15 @@ export const searchaction = term => {
   })
 }
 
+export const advancedsearchaction = object => {
+  return axios({
+    method: "GET",
+
+    //new url for advanced search options
+    // url: `https://api.scryfall.com/cards/search?q=${term}`,
+  })
+}
+
 export const search = query_string => dispatch => {
   return searchaction(query_string)
     .then(payload => {
@@ -45,3 +62,11 @@ export const search = query_string => dispatch => {
       
     });
 }
+
+// export const advancedSearch = object => dispatch => {
+//   return advancedsearchaction(object)
+//     .then(payload => {
+//       dispatch(receiveAdvancedSearch(payload.data))
+
+//     });
+// }
