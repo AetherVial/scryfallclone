@@ -51,6 +51,38 @@ export const advancedsearchaction = object => {
 
     //new url for advanced search options
     // url: `https://api.scryfall.com/cards/search?q=${term}`,
+
+    /* 
+      name
+
+✓
+
+Sort cards by name, A → Z
+
+set
+
+released
+
+rarity
+
+color
+
+usd
+
+tix
+
+eur
+
+cmc
+
+power
+
+toughness
+
+edhrec
+
+artist
+    */
   })
 }
 
