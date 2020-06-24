@@ -1,0 +1,6 @@
+.navbar {
+  border: 3px solid red;
+  width: 100%;
+  top: 0;
+  position: absolute;
+}

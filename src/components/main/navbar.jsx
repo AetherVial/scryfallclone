@@ -3,7 +3,7 @@ import { withRouter, Link, useHistory } from 'react-router-dom';
 import { clearSearch, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
 import Card from './card';
-import "../../stylesheets/card.css";
+import "../../stylesheets/navbar.css";
 
 const mstp = ({ search }) => {
   return {
