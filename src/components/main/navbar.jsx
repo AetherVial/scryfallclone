@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import { withRouter, Link, useHistory } from 'react-router-dom';
-import { receiveSearchTerm, clearSearch, search } from '../../actions/search_actions';
+import { withRouter, Link } from 'react-router-dom';
+import { receiveSearchTerm, search } from '../../actions/search_actions';
 import { connect } from "react-redux";
-import Card from './card';
 import "../../stylesheets/navbar.css";
 
 const mstp = ({ search }) => {
@@ -19,13 +18,12 @@ const mdtp = dispatch => {
 
 function NavBar({ term }) {
   let [searchTerm, setSearchTerm] = useState(term);
-  let history = useHistory();
 
   function onFormSubmit(e) {
     e.preventDefault();
     receiveSearchTerm(searchTerm);
     search(searchTerm);
-    history.push('/results')
+    console.log(searchTerm);
   }
 
   return(

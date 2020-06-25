@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { connect } from "react-redux";
 import {withRouter, useHistory} from 'react-router-dom';
 import catto from '../../frostcatto1.png';
-import { clearSearch, search, receiveSearchTerm, clearSearchTerm } from '../../actions/search_actions';
+import { clearSearch, search, receiveSearchTerm} from '../../actions/search_actions';
 
 const mstp = ({search}) => {
   return {
@@ -17,7 +17,7 @@ const mdtp = dispatch => {
   }
 }
 
-function Search({search, clearSearch}) {
+function Search({search}) {
   let [searchTerm, setSearchTerm] = useState('');
   let history = useHistory();
 
