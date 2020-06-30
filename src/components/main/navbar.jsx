@@ -28,9 +28,13 @@ function NavBar({ term }) {
 
   return(
     <div className="navbar">
-      <form onSubmit={e => onFormSubmit(e)}>
+      <form onSubmit={e => onFormSubmit(e)} className="navForm">
         <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value.toLowerCase())}></input>
+        <div className="navbar-left">
+          hello
+        </div>
       </form>
+      
     </div>
   )
  

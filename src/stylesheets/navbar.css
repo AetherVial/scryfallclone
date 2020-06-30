@@ -1,7 +1,38 @@
 .navbar {
-  border: 3px solid red;
   width: 100%;
+  height: 60px;
   top: 0;
   position: relative;
   z-index: 3;
+  background-color: rgb(43,37,58);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navForm {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+  border: 3px solid blue;
+}
+
+.navForm > input {
+  height: 60%;
+  width: 50%;
+  color: white;
+  background-color: rgb(43,37,58);
+  border: none;
+  border: 3px solid red;
+}
+
+.navForm > input:focus {
+  outline: none;
+}
+
+.navbar-left {
+  color: white;
+  margin-left: 50px;
 }
